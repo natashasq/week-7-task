@@ -1,0 +1,22 @@
+$text-color: #7a7a7a;
+$color-turquoise: #3cb3ab;
+$color-silver-light: #fafafa;
+$color-silver-dark: #2f2f2f;
+$color-turquoise-dark: #147a73;
+
+
+* {
+  font-family: "Commissioner", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+body {
+  max-width: 100%;
+  position: relative;
+  background-color: $color-silver-light;
+}

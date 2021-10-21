@@ -1,0 +1,105 @@
+@use "fonts.scss";
+@use "elements.scss";
+@use "responsive.scss";
+@use "global.scss";
+
+$text-color: #7a7a7a;
+$color-turquoise: #3cb3ab;
+$color-silver-light: #fafafa;
+$color-silver-dark: #2f2f2f;
+$color-turquoise-dark: #147a73;
+
+.header {
+  padding: 32px 24px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  @include responsive.desktopScreen {
+    padding: 48px 133px 0 166px;
+  }
+  &__logo {
+    height: 20px;
+    width: 128px;
+  }
+  &__hamburger {
+    width: 16px;
+    height: 15px;
+    @include responsive.desktopScreen {
+      display: none;
+    }
+  }
+  &__background {
+    background: url(/images/image-hero-mobile.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    z-index: -1;
+    @include responsive.desktopScreen {
+      background: url(/images/image-hero-desktop.jpg);
+      height: 400px;
+      background-repeat: no-repeat;
+    }
+  }
+  &__navigation {
+    display: none;
+    @include responsive.desktopScreen {
+      display: flex;
+    }
+  }
+  &__navigation-link {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: white;
+    margin-right: 33px;
+  }
+  &__navigation-mobile {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.0001) 100%);
+    mix-blend-mode: normal;
+    z-index: 0;
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    color: black;
+    padding: 32px 25px 0px 24px;
+    flex-direction: column;
+  }
+  &__navigation-mobile-logo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+  &__navigation-bar {
+    background-color: white;
+    width: 100%;
+    height: 212px;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  &__navigation-mobile-link {
+    padding: 24px;
+    @include fonts.h3;
+    font-weight: 500;
+    text-align: left;
+    border-bottom: solid 1px rgba(46, 46, 46, 0.1);
+    width: 100%;
+  }
+  &__navigation-icon-close {
+    width: 14px;
+    height: 15px;
+  }
+}
