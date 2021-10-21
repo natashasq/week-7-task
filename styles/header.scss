@@ -41,6 +41,7 @@ $color-turquoise-dark: #147a73;
       background: url(/images/image-hero-desktop.jpg);
       height: 400px;
       background-repeat: no-repeat;
+      background-size: cover;
     }
   }
   &__navigation {
@@ -55,6 +56,9 @@ $color-turquoise-dark: #147a73;
     line-height: 16px;
     color: white;
     margin-right: 33px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__navigation-mobile {
     display: none;

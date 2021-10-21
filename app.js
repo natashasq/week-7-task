@@ -9,14 +9,14 @@ const headerLogo = document.querySelector(".header__logo");
 
 const modalWrapper = document.querySelector(".modal__wrapper");
 const confirmationWrapper = document.querySelector(".confirmation__wrapper");
-const confirmBtn = document.querySelector('.confirmation__btn');
+const confirmBtn = document.querySelector(".confirmation__btn");
 
 const rewardCardBtns = document.querySelectorAll(".page__about-reward-btn");
 const rewardCardBtnsArr = Array.from(rewardCardBtns);
 const closeModalBtn = document.querySelector(".modal__icon-close");
 
-const checkmarks = document.querySelectorAll(".modal__form-card-checkmark");
-const checkmarksArr = Array.from(checkmarks);
+const cardTitle = document.querySelectorAll(".modal__form-card-title-text");
+const cardTitleArr = Array.from(cardTitle);
 const checkmark1 = document.querySelector(".checkmark");
 
 const submitBtn = document.querySelectorAll(".modal__pledge-btn");
@@ -67,16 +67,22 @@ const closeModal = () => {
 //select modal
 
 const selectModal = () => {
-  checkmarksArr.forEach((checkmarkOuter, i) => {
-    checkmarkOuter.addEventListener("click", function () {
-      checkmarksArr.forEach((checkmarkInner, j) => {
-        const title = checkmarkInner.parentElement;
+  cardTitleArr.forEach((titleOuter, i) => {
+    titleOuter.addEventListener("click", function () {
+      cardTitleArr.forEach((titleInner, j) => {
+        const title = titleInner.parentElement;
         const card = title.parentElement;
+        const subtitle = titleInner.nextElementSibling;
+        if (card.classList.contains("-checkmark1")) {
+          console.log(titleInner);
+          titleInner.nextElementSibling.checked = false;
+        }
 
-        checkmarkInner.previousElementSibling.checked = false;
+        subtitle.nextElementSibling.checked = false;
 
         if (j != i) {
-          const input = checkmarksArr[j].previousElementSibling;
+          const subtitle = cardTitleArr[j].nextElementSibling;
+          const input = subtitle.nextElementSibling;
           input.checked = false;
           card.classList.add("-unchecked");
           card.classList.remove("-checked");
@@ -86,14 +92,19 @@ const selectModal = () => {
         }
       });
 
-      const input = this.previousElementSibling;
+      const subtitle = this.nextElementSibling;
+      const input = subtitle.nextElementSibling;
       const title = this.parentElement;
       const card = title.parentElement;
       input.checked = true;
       if (card.classList.contains("-checkmark1")) {
+        const input = this.nextElementSibling;
+        input.checked = true;
         card.classList.remove("-unchecked");
-        card.classList.add("-card-modifier-1");
+        card.classList.add("-checked-1");
       } else if (card.classList.contains("-inactive")) {
+        console.log(card)
+        input.checked = false;
         return;
       } else {
         card.classList.remove("-unchecked");
@@ -118,8 +129,12 @@ const sumbitForm = () => {
         const currentAmountNo = currentAmount.replace(/\,/g, "");
         const newAmount = input.value;
         const newAmountNo = newAmount.replace(/\,/g, "");
+        console.log(currentAmount)
+        console.log(newAmountNo)
 
         let result = parseInt(currentAmountNo) + parseInt(newAmountNo);
+
+        console.log(result)
 
         let resultString = result
           .toString()
@@ -130,9 +145,7 @@ const sumbitForm = () => {
       const countBackers = () => {
         const currentCount = backersCount.innerHTML;
         const currentCountNo = currentCount.replace(/\,/g, "");
-        const newCount = parseInt(currentCount, 10);
-
-        console.log(newCount)
+        const newCount = parseInt(currentCountNo) + 1;
 
         let newCountString = newCount
           .toString()
@@ -147,30 +160,13 @@ const sumbitForm = () => {
 };
 
 const backToHome = () => {
-  confirmBtn.addEventListener('click', () => {
-    confirmationWrapper.style.display = 'none';
-  })
-}
+  confirmBtn.addEventListener("click", () => {
+    confirmationWrapper.style.display = "none";
+  });
+};
 
 selectModal();
 openModal();
 closeModal();
 sumbitForm();
 backToHome();
-
-// checkmark.addEventListener("click", () => {
-//   const modalCard = checkmark.parentElement;
-
-//   if (modalCard.classList.contains("-checkmark1")) {
-//     modalCard.classList.add("-card-modifier-1");
-//     return;
-//   }
-//   if (modalCard.classList.contains("-inactive")) {
-//     return;
-//   } else {
-//     modalCard.classList.add("-card-modifier");
-//     modalCard.nextElementSibling.style.display = "flex";
-//     return;
-//   }
-// });
-// });
