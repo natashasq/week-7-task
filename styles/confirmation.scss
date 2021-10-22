@@ -24,6 +24,7 @@ $color-turquoise-dark: #147a73;
   color: black;
   padding: 143px 24px;
   flex-direction: column;
+  z-index: 2;
   @include responsive.desktopScreen {
   }
 }

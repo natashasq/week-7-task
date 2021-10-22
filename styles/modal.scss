@@ -23,6 +23,7 @@ $color-turquoise-dark: #147a73;
   color: black;
   padding: 121px 24px 120px 24px;
   flex-direction: column;
+  z-index: 2;
   @include responsive.desktopScreen {
     padding: 184px 355px 280px 355px;
   }
@@ -36,6 +37,7 @@ $color-turquoise-dark: #147a73;
   max-width: 600px;
   @include responsive.desktopScreen {
     padding: 48.5px 48px 24.5px 48px;
+    max-width: 730px;
   }
   &__header {
     display: flex;

@@ -25,6 +25,7 @@ $color-turquoise-dark: #147a73;
     padding: 0 23.5px 40px 23.5px;
     border-radius: 8px;
     margin-bottom: 24px;
+    z-index: 1;
     @include responsive.desktopScreen {
       padding: 0 48px 48px 48px;
       width: 730px;
@@ -61,23 +62,6 @@ $color-turquoise-dark: #147a73;
       padding: 0;
     }
   }
-  &__hero-bookmark {
-    cursor: pointer;
-    margin-right: 16px;
-    &:hover {
-      opacity: 0.5;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-  &__hero-bookmark-circle {
-    &:focus {
-      fill: $color-turquoise-dark;
-      outline: none;
-    }
-  }
-
   &__stats {
     @include elements.card;
     display: flex;

@@ -19,23 +19,18 @@ $color-turquoise-dark: #147a73;
   &__logo {
     height: 20px;
     width: 128px;
+    z-index: 2;
+  }
+  &__logo-link {
+    z-index: 2;
   }
   &__hamburger {
     width: 16px;
     height: 15px;
+    z-index: 2;;
     @include responsive.desktopScreen {
       display: none;
     }
-  }
-  &__background-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 128px;
-    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.0001) 100%);
-    mix-blend-mode: normal;
-    opacity: 0.6;
   }
   &__background {
     background: url(/images/image-hero-mobile.jpg);
@@ -46,12 +41,22 @@ $color-turquoise-dark: #147a73;
     width: 100%;
     height: 300px;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 0;
     @include responsive.desktopScreen {
       background: url(/images/image-hero-desktop.jpg);
       height: 400px;
       background-repeat: no-repeat;
       background-size: cover;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      height: 128px;
+      width: 100%;
+      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.0001) 100%);
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
   }
   &__navigation {
@@ -66,6 +71,8 @@ $color-turquoise-dark: #147a73;
     line-height: 16px;
     color: white;
     margin-right: 33px;
+    z-index: 1;
+    text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
@@ -85,6 +92,7 @@ $color-turquoise-dark: #147a73;
     color: black;
     padding: 32px 25px 0px 24px;
     flex-direction: column;
+    z-index: 2;
   }
   &__navigation-mobile-logo {
     display: flex;

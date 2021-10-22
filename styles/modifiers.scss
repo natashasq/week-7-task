@@ -17,22 +17,26 @@ $color-turquoise-dark: #147a73;
     align-items: center;
     margin-right: 0;
     width: 174px;
+    .page__hero-bookmark {
+      margin-right: 16px;
+    }
     &:hover {
       background-color: $color-silver-light;
       opacity: 0.5;
       color: $text-color;
     }
-    &:focus {
-      background-color: rgba(20, 122, 115, 0.05);
-      color: $color-turquoise-dark;
+  }
+}
 
-      .page__hero-bookmark-circle {
-        fill: $color-turquoise-dark;
-      }
-      .page__hero-bookmark-path {
-        fill: white;
-      }
-    }
+.-clicked {
+  background-color: rgba(20, 122, 115, 0.05);
+  color: $color-turquoise-dark;
+  .page__hero-bookmark-circle {
+    fill: $color-turquoise-dark;
+    outline: none;
+  }
+  .page__hero-bookmark-path {
+    fill: white;
   }
 }
 
