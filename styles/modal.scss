@@ -1,0 +1,302 @@
+@use "fonts.scss";
+@use "elements.scss";
+@use "responsive.scss";
+
+$text-color: #7a7a7a;
+$color-turquoise: #3cb3ab;
+$color-silver-light: #fafafa;
+$color-silver-dark: #2f2f2f;
+$color-turquoise-dark: #147a73;
+
+.modal__wrapper {
+  display: none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: normal;
+  z-index: 0;
+  float: left;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: black;
+  padding: 121px 24px 120px 24px;
+  flex-direction: column;
+  z-index: 2;
+  @include responsive.desktopScreen {
+    padding: 184px 355px 280px 355px;
+  }
+}
+.modal {
+  @include elements.card;
+  margin: 0 auto;
+  padding: 32px 24px;
+  z-index: 1;
+  width: 100%;
+  max-width: 600px;
+  @include responsive.desktopScreen {
+    padding: 48.5px 48px 24.5px 48px;
+    max-width: 730px;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 24px;
+    @include responsive.desktopScreen {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    @include fonts.h3;
+    @include responsive.desktopScreen {
+      line-height: 29px;
+    }
+  }
+  &__icon-close {
+    height: 14px;
+    width: 14px;
+    @include responsive.desktopScreen {
+      margin-top: -32px;
+    }
+  }
+  &__icon-close-path {
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__text {
+    @include fonts.body;
+    margin-bottom: 24px;
+    @include responsive.desktopScreen {
+      text-align: left;
+      width: 100%;
+      margin-bottom: 32px;
+    }
+  }
+  &__form-card {
+    @include elements.innerCard;
+    @include responsive.desktopScreen {
+      padding: 32px 28px;
+      display: grid;
+      grid-template-rows: 24px 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      row-gap: 17px;
+    }
+  }
+  &__form-card-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 33px;
+    @include responsive.desktopScreen {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 1;
+      margin-bottom: 0;
+    }
+  }
+  &__form-card-title-text {
+    @include fonts.h3;
+    &:hover {
+      color: $color-turquoise;
+      cursor: pointer;
+    }
+    @include responsive.desktopScreen {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  &__form-card-radio {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &__form-card-checkmark {
+    position: absolute;
+    top: 9px;
+    left: -40px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    @include responsive.desktopScreen {
+      top: 4px;
+    }
+  }
+  &__form-card-title-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__form-card-title {
+    @include elements.innerCardTitle();
+    margin-bottom: 0;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin-left: 40px;
+    @include responsive.desktopScreen {
+      display: flex;
+      width: 100%;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  &__form-card-subtitle-text {
+    @include elements.innerCardSubtitle();
+    margin-bottom: 0;
+    margin-top: 8px;
+    &:hover {
+      cursor: pointer;
+    }
+    @include responsive.desktopScreen {
+      margin-top: 0;
+      margin-left: 17px;
+    }
+  }
+  &__form-card-text {
+    @include fonts.body;
+    margin-bottom: 24px;
+    @include responsive.desktopScreen {
+      margin-left: 40px;
+      grid-column-start: 1;
+      grid-column-end: 6;
+      grid-row-start: 2;
+      grid-row-end: 2;
+      font-size: 15px;
+      line-height: 28px;
+      margin-bottom: 0;
+    }
+  }
+  &__form-card-details {
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    @include responsive.desktopScreen {
+      grid-row-start: 1;
+      grid-row-end: 1;
+      grid-column-start: 5;
+    }
+  }
+  &__form-card-details-no {
+    @include fonts.h3;
+    margin-right: 8px;
+    @include responsive.desktopScreen {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+  &__form-card-details-text {
+    @include fonts.body;
+    @include responsive.desktopScreen {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+
+  &__pledge {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    @include elements.border();
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 24px;
+    border: solid 2px $color-turquoise;
+    border-top: solid 1px rgba(0, 0, 0, 0.15);
+    @include responsive.desktopScreen {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 24px 28px;
+    }
+  }
+  &__pledge-text {
+    @include fonts.body;
+    line-height: 28px;
+    margin-bottom: 16px;
+    @include responsive.desktopScreen {
+      margin-bottom: 0;
+    }
+  }
+  &__pledge-btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    @include responsive.desktopScreen {
+      margin-bottom: 0;
+    }
+  }
+  &__pledge-input-wrapper {
+    @include elements.border();
+    padding: 15px 24px;
+    border-radius: 33.5px;
+    @include fonts.body;
+    line-height: 17px;
+    font-weight: 700;
+    height: 48px;
+    margin-right: 16px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      border-color: $color-turquoise-dark;
+    }
+  }
+  &__pledge-input {
+    border: none;
+    @include fonts.body;
+    line-height: 17px;
+    font-weight: 700;
+    color: black;
+    width: 39px;
+    margin-left: 8px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  &__pledge-btn {
+    @include elements.btn();
+    padding: 15px 25px 16px 26px;
+    height: 48px;
+    @include fonts.body;
+    line-height: 17px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.modal__form-card-title input:checked ~ .modal__form-card-checkmark {
+  background-color: white;
+}
+.modal__form-card-checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.modal__form-card-title input:checked ~ .modal__form-card-checkmark::after {
+  display: block;
+}
+
+.modal__form-card-title .modal__form-card-checkmark::after {
+  top: 5px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $color-turquoise;
+}
+
+

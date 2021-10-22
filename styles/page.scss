@@ -1,0 +1,229 @@
+@use "fonts.scss";
+@use "elements.scss";
+@use "responsive.scss";
+
+$text-color: #7a7a7a;
+$color-turquoise: #3cb3ab;
+$color-silver-light: #fafafa;
+$color-silver-dark: #2f2f2f;
+$color-turquoise-dark: #147a73;
+
+.page {
+  margin-top: 192px;
+  padding: 0 24px 40px 24px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include responsive.desktopScreen {
+    padding: 0 355px 124px 355px;
+    margin-top: 247px;
+  }
+  &__hero {
+    @include elements.card;
+    margin-top: 28px;
+    padding: 0 23.5px 40px 23.5px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    z-index: 1;
+    @include responsive.desktopScreen {
+      padding: 0 48px 48px 48px;
+      width: 730px;
+    }
+  }
+  &__hero-icon {
+    margin-top: -30px;
+    margin-bottom: 24px;
+  }
+  &__hero-title {
+    @include fonts.h2;
+    margin-bottom: 16px;
+  }
+  &__hero-content {
+    @include fonts.body;
+    margin-bottom: 24px;
+  }
+  &__hero-btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    @include responsive.desktopScreen {
+      justify-content: space-between;
+    }
+  }
+  &__hero-btn {
+    @include elements.btn;
+    margin-right: 9px;
+    padding: 17px 42px 19px 42px;
+    width: 214px;
+    @include responsive.desktopScreen {
+      width: 204px;
+      padding: 0;
+    }
+  }
+  &__stats {
+    @include elements.card;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 23px 40px 25px;
+    background-color: white;
+    margin-bottom: 24px;
+    min-width: 327px;
+    align-self: center;
+    max-width: 600px;
+    @include responsive.smallScreen {
+      min-width: 272px;
+    }
+    @include responsive.desktopScreen {
+      padding: 48px;
+      max-width: unset;
+      width: 730px;
+    }
+  }
+  &__stats-details-wrapper {
+    @include responsive.desktopScreen {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 37px;
+    }
+  }
+  &__stats-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include responsive.desktopScreen {
+      justify-content: flex-start;
+      width: 100%;
+      height: 66px;
+      border-right: solid 1px rgba(0, 0, 0, 0.15);
+    }
+  }
+  &__stats-number-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  &__stats-number, &__stats-number-dollar {
+    @include fonts.h1;
+    margin-bottom: 9px;
+    margin-top: 24px;
+    @include responsive.desktopScreen {
+      margin: 0;
+      width: 100%;
+      text-align: left;
+    }
+  }
+  &__stats-number-dollar {
+    @include responsive.desktopScreen {
+      width: fit-content;
+    }
+  }
+  &__stats-text {
+    @include fonts.body;
+    line-height: 17px;
+    padding-bottom: 24px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+    @include responsive.desktopScreen {
+      padding: 0;
+      border: none;
+      width: 100%;
+    }
+  }
+  &__stats-bar {
+    width: 100%;
+    height: 12px;
+    background-color: $color-silver-light;
+    border-radius: 33.5px;
+  }
+  &__stats-bar-progress {
+    width: 50%;
+    height: 12px;
+    background-color: $color-turquoise;
+    border-radius: 33.5px;
+    z-index: 1;
+  }
+  &__about {
+    max-width: 600px;
+    @include elements.card;
+    padding: 40px 24px 76px 24px;
+    @include responsive.desktopScreen {
+      padding: 48px;
+      max-width: unset;
+      width: 730px;
+    }
+  }
+  &__about-title {
+    @include fonts.h3;
+    margin-bottom: 24px;
+    align-self: flex-start;
+  }
+  &__about-text {
+    @include fonts.body;
+    text-align: left;
+    margin-bottom: 35px;
+    @include responsive.desktopScreen {
+      margin-bottom: 40px;
+    }
+  }
+  &__about-reward-card {
+    @include elements.innerCard();
+  }
+  &__about-reward-card-title-wrapper {
+    @include responsive.desktopScreen {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__about-reward-card-title {
+    @include elements.innerCardTitle();
+  }
+  &__about-reward-card-subtitle {
+    @include elements.innerCardSubtitle();
+  }
+  &__about-reward-card-text {
+    @include fonts.body;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  &__about-reward-details-wrapper {
+    @include responsive.desktopScreen {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__about-reward-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  &__about-reward-details-no {
+    @include fonts.h1;
+    margin-right: 8px;
+  }
+  &__about-reward-details-text {
+    @include fonts.body;
+    font-size: 15px;
+    line-height: 18px;
+    @include responsive.desktopScreen {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+  &__about-reward-btn {
+    @include elements.btn;
+    padding: 15px 33px 16px 32px;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    @include responsive.desktopScreen {
+      height: 48px;
+    }
+  }
+}

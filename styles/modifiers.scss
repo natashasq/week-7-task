@@ -1,0 +1,93 @@
+@use "fonts.scss";
+@use "elements.scss";
+@use "responsive.scss";
+
+$text-color: #7a7a7a;
+$color-turquoise: #3cb3ab;
+$color-silver-light: #fafafa;
+$color-silver-dark: #2f2f2f;
+$color-turquoise-dark: #147a73;
+
+.-silver-hero {
+  display: none;
+  @include responsive.desktopScreen {
+    display: flex;
+    background-color: $color-silver-light;
+    color: $text-color;
+    align-items: center;
+    margin-right: 0;
+    width: 174px;
+    .page__hero-bookmark {
+      margin-right: 16px;
+    }
+    &:hover {
+      background-color: $color-silver-light;
+      opacity: 0.5;
+      color: $text-color;
+    }
+  }
+}
+
+.-clicked {
+  background-color: rgba(20, 122, 115, 0.05);
+  color: $color-turquoise-dark;
+  .page__hero-bookmark-circle {
+    fill: $color-turquoise-dark;
+    outline: none;
+  }
+  .page__hero-bookmark-path {
+    fill: white;
+  }
+}
+
+.-silver-card {
+  background: $color-silver-dark;
+  opacity: 0.5;
+}
+
+.-inactive {
+  opacity: 0.5;
+}
+
+.-inactive-title {
+  &:hover {
+    color: black;
+    cursor: default;
+  }
+}
+.-display-none {
+  display: none;
+}
+
+.-checked {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+  border: solid 2px $color-turquoise;
+  border-bottom: none;
+}
+
+.-checked-1 {
+  border: solid 2px $color-turquoise;
+}
+
+.-top-modifier {
+  top: -5px;
+  @include responsive.desktopScreen {
+    top: 0px;
+  }
+}
+
+.-padding-left {
+  @include responsive.desktopScreen {
+    padding-left: 47px;
+  }
+}
+
+.-no-border {
+  border: none;
+}
+
+.-unchecked {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
